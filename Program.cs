@@ -1,56 +1,85 @@
-﻿// Randomly generate 3 digit number
-    // random
-// Take in user input
-    // Console.readline
-// Compare digits
-    // using FOREACH() 
-// Provide feedback
-    // if statements
-// Repeat for 6 turns (if needed)
-    // use a loop?
-// Display end result
+﻿// Welcome message 
+Console.WriteLine("      **Welcome to Nerdle**");
+Console.WriteLine("      ---------------------\n");
 
+// Setting 3 random ints 0-9
 Random _random1 = new Random();
-int firstDigit = _random1.Next(0,10);
+int firstDigit = _random1.Next(0, 10);
 
 Random _random2 = new Random();
-int secondDigit = _random2.Next(0,10);
+int secondDigit = _random2.Next(0, 10);
 
 Random _random3 = new Random();
-int thirdDigit = _random3.Next(0,10);
+int thirdDigit = _random3.Next(0, 10);
+// Putting the 3 ints into an array and printing
+// For internal purposes only, so we can see the number when testing
+// int[] correctAnswer = new int[3] { firstDigit, secondDigit, thirdDigit };
 
-int[] correctAnswer = new int[3]{firstDigit, secondDigit, thirdDigit};
+// foreach (int digit in correctAnswer)
+// {
+//     Console.Write(digit.ToString());
+// }
 
-foreach (int digit in correctAnswer)
+// For Loop that provides 5 attempts
+int attempts = 6;
+int guessResult = 0;
+for (int i = 0; i < attempts && guessResult == 0; i++)
+{
+    if (i == 5)
+    {
+        guessResult = 0;
+        Console.WriteLine("~ You have run out of attempts. Better luck next time. ~");
+    }
+    else
+    {
+        Console.Write($"Try to guess our 3 digit number. You have {attempts - (i + 1)} attempts left:  ");
+        string input = Console.ReadLine();
+
+        //Check entered value to confirm it is 3 digits and does not contain other character types
+        int number;
+        bool isValid = int.TryParse(input, out number);
+        char[] inputArray = input.ToCharArray();
+        int digitCheck = inputArray.GetLength(0);
+        
+        if (!isValid || digitCheck != 3)
+        {
+            Console.WriteLine("~ Sorry, that was not a valid guess. ~");
+            i--;
+        }
+        else
+        {
+
+            // Takes the user input, converts to array of char, then array of int, then 3 single digit ints
+            char[] guess = input.ToCharArray();
+            int guessDigit1 = int.Parse(guess[0].ToString());
+            int guessDigit2 = int.Parse(guess[1].ToString());
+            int guessDigit3 = int.Parse(guess[2].ToString());
+
+            // Conditional that compares user guess to our random ints and provides feedback
+            if (firstDigit == guessDigit1 && secondDigit == guessDigit2 && thirdDigit == guessDigit3)
             {
-                Console.Write(digit.ToString());
+                guessResult = 1;
+                Console.WriteLine("*Congratulations! You correctly guessed our number. You are a Nerdle.*\n");
             }
 
-Console.Write("Try to guess our 3 digit number: ");
-string input = Console.ReadLine();
-char[] guess = input.ToCharArray();
+            else
+            {
+                string feedback1 = firstDigit == guessDigit1 ? "correct" : firstDigit > guessDigit1 ? "higher" : "lower";
+                Console.WriteLine($"The first digit is {feedback1}. ");
 
-// If any digit not a number, lines 35-37 throw an error. Some way to test before that and provide a message?
+                string feedback2 = secondDigit == guessDigit2 ? "correct" : secondDigit > guessDigit2 ? "higher" : "lower";
+                Console.WriteLine($"The second digit is {feedback2}. ");
 
-int guessDigit1 = int.Parse(guess[0].ToString());
-int guessDigit2 = int.Parse(guess[1].ToString());
-int guessDigit3 = int.Parse(guess[2].ToString());
-
-if (firstDigit == guessDigit1 && secondDigit == guessDigit2 && thirdDigit == guessDigit3)
-{
-    Console.WriteLine("Congratulations! You correctly guessed our number. You are a Nerdle.");
+                string feedback3 = thirdDigit == guessDigit3 ? "correct" : thirdDigit > guessDigit3 ? "higher" : "lower";
+                Console.WriteLine($"The third digit is {feedback3}. ");
+            }
+        }
+    }
 }
-else
-{
-string feedback1 = firstDigit == guessDigit1 ? "correct" : firstDigit > guessDigit1 ? "higher" : "lower";
-Console.Write($"The first digit is {feedback1}. ");
+// Add some color? Make Congratulations green and error messages red?
+//    Fancy title? |\  |
+//                 | \ |
+//                 |  \|
 
-string feedback2 = secondDigit == guessDigit2 ? "correct" : secondDigit > guessDigit2 ? "higher" : "lower";
-Console.Write($"The second digit is {feedback2}. ");
 
-string feedback3 = thirdDigit == guessDigit3 ? "correct" : thirdDigit > guessDigit3 ? "higher" : "lower";
-Console.WriteLine($"The third digit is {feedback3}. ");
-}
 
-// loop lines 29-53 on a counter with 6 attempts
-// Console.WriteLine that says you have x attempts remaining?
