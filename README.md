@@ -1,0 +1,1 @@
+Game similar to wordle: 3 digit number, try and guess the digits. If wrong, result shows high/low for each digit 

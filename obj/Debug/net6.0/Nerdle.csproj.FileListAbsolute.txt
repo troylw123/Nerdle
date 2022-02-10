@@ -1,0 +1,15 @@
+C:\Users\troyl\Documents\CF127FT\codingFoundations\dotnetProjects\nerdle\obj\Debug\net6.0\Nerdle.csproj.AssemblyReference.cache
+C:\Users\troyl\Documents\CF127FT\codingFoundations\dotnetProjects\nerdle\obj\Debug\net6.0\Nerdle.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\troyl\Documents\CF127FT\codingFoundations\dotnetProjects\nerdle\obj\Debug\net6.0\Nerdle.AssemblyInfoInputs.cache
+C:\Users\troyl\Documents\CF127FT\codingFoundations\dotnetProjects\nerdle\obj\Debug\net6.0\Nerdle.AssemblyInfo.cs
+C:\Users\troyl\Documents\CF127FT\codingFoundations\dotnetProjects\nerdle\obj\Debug\net6.0\Nerdle.csproj.CoreCompileInputs.cache
+C:\Users\troyl\Documents\CF127FT\codingFoundations\dotnetProjects\nerdle\bin\Debug\net6.0\Nerdle.exe
+C:\Users\troyl\Documents\CF127FT\codingFoundations\dotnetProjects\nerdle\bin\Debug\net6.0\Nerdle.deps.json
+C:\Users\troyl\Documents\CF127FT\codingFoundations\dotnetProjects\nerdle\bin\Debug\net6.0\Nerdle.runtimeconfig.json
+C:\Users\troyl\Documents\CF127FT\codingFoundations\dotnetProjects\nerdle\bin\Debug\net6.0\Nerdle.dll
+C:\Users\troyl\Documents\CF127FT\codingFoundations\dotnetProjects\nerdle\bin\Debug\net6.0\ref\Nerdle.dll
+C:\Users\troyl\Documents\CF127FT\codingFoundations\dotnetProjects\nerdle\bin\Debug\net6.0\Nerdle.pdb
+C:\Users\troyl\Documents\CF127FT\codingFoundations\dotnetProjects\nerdle\obj\Debug\net6.0\Nerdle.dll
+C:\Users\troyl\Documents\CF127FT\codingFoundations\dotnetProjects\nerdle\obj\Debug\net6.0\ref\Nerdle.dll
+C:\Users\troyl\Documents\CF127FT\codingFoundations\dotnetProjects\nerdle\obj\Debug\net6.0\Nerdle.pdb
+C:\Users\troyl\Documents\CF127FT\codingFoundations\dotnetProjects\nerdle\obj\Debug\net6.0\Nerdle.genruntimeconfig.cache
