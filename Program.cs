@@ -30,11 +30,11 @@ Console.Write("Try to guess our 3 digit number: ");
 string input = Console.ReadLine();
 char[] guess = input.ToCharArray();
 
+// If any digit not a number, lines 35-37 throw an error. Some way to test before that and provide a message?
+
 int guessDigit1 = int.Parse(guess[0].ToString());
 int guessDigit2 = int.Parse(guess[1].ToString());
 int guessDigit3 = int.Parse(guess[2].ToString());
-
-// if statement for invalid input? guessDigit1, 2, or 3 not an int 0-9?
 
 if (firstDigit == guessDigit1 && secondDigit == guessDigit2 && thirdDigit == guessDigit3)
 {
