@@ -76,10 +76,11 @@ for (int i = 0; i < attempts && guessResult == 0; i++)
         }
     }
 }
-// Add some color? Make Congratulations green and error messages red?
-//    Fancy title? |\  |
-//                 | \ |
-//                 |  \|
+// Add some color? Make Congratulations blue and error messages red?
+// Fancy title?           ___   __    __         ___
+//    ----------   |\  | |     |__)  |  \  |    |
+//    WELCOME TO   | \ | |--   | \   |   | |    |--
+//    ----------   |  \| |___  |  \  |__/  |___ |___
 
 
 
