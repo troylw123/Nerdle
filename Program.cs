@@ -1,7 +1,11 @@
 ﻿// Welcome message 
-Console.WriteLine("      **Welcome to Nerdle**");
-Console.WriteLine("      ---------------------\n");
-
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine(@"                        ___   __    __         ___");
+Console.WriteLine(@"    ----------   |\  | |     |__)  |  \  |    |   ");
+Console.WriteLine(@"    WELCOME TO   | \ | |--   | \   |   | |    |-- ");
+Console.WriteLine(@"    ----------   |  \| |___  |  \  |__/  |___ |___");
+Console.WriteLine("");
+Console.ResetColor();
 // Setting 3 random ints 0-9
 Random _random1 = new Random();
 int firstDigit = _random1.Next(0, 10);
@@ -27,14 +31,17 @@ for (int i = 0; i < attempts && guessResult == 0; i++)
 {
     if (i == 5)
     {
-        guessResult = 0;
+        guessResult = 1;
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("~ You have run out of attempts. Better luck next time. ~");
+        Console.ResetColor();
     }
     else
     {
         Console.Write($"Try to guess our 3 digit number. You have {attempts - (i + 1)} attempts left:  ");
-        string input = Console.ReadLine();
-
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        string input = Console.ReadLine()!;
+        Console.ResetColor();
         //Check entered value to confirm it is 3 digits and does not contain other character types
         int number;
         bool isValid = int.TryParse(input, out number);
@@ -43,7 +50,9 @@ for (int i = 0; i < attempts && guessResult == 0; i++)
         
         if (!isValid || digitCheck != 3)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("~ Sorry, that was not a valid guess. ~");
+            Console.ResetColor();
             i--;
         }
         else
@@ -59,7 +68,9 @@ for (int i = 0; i < attempts && guessResult == 0; i++)
             if (firstDigit == guessDigit1 && secondDigit == guessDigit2 && thirdDigit == guessDigit3)
             {
                 guessResult = 1;
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine("*Congratulations! You correctly guessed our number. You are a Nerdle.*\n");
+                Console.ResetColor();
             }
 
             else
@@ -76,11 +87,3 @@ for (int i = 0; i < attempts && guessResult == 0; i++)
         }
     }
 }
-// Add some color? Make Congratulations blue and error messages red?
-// Fancy title?           ___   __    __         ___
-//    ----------   |\  | |     |__)  |  \  |    |
-//    WELCOME TO   | \ | |--   | \   |   | |    |--
-//    ----------   |  \| |___  |  \  |__/  |___ |___
-
-
-
