@@ -1,44 +1,60 @@
-﻿// Welcome message 
-Console.ForegroundColor = ConsoleColor.Green;
-Console.WriteLine(@"                        ___   __    __         ___");
-Console.WriteLine(@"    ----------   |\  | |     |__)  |  \  |    |   ");
-Console.WriteLine(@"    WELCOME TO   | \ | |--   | \   |   | |    |-- ");
-Console.WriteLine(@"    ----------   |  \| |___  |  \  |__/  |___ |___");
-Console.WriteLine("");
-Console.ResetColor();
+﻿using Nerdle;
+
+Introduction intro = new Introduction();
+NerdleGenerator nerdGen = new NerdleGenerator();
+
+// Welcome message 
+intro.WelcomeMessage();
+
 // Setting 3 random ints 0-9
-Random _random1 = new Random();
-int firstDigit = _random1.Next(0, 10);
+int firstDigit = nerdGen.GenerateNerdle();
+int secondDigit = nerdGen.GenerateNerdle();
+int thirdDigit = nerdGen.GenerateNerdle();
 
-Random _random2 = new Random();
-int secondDigit = _random2.Next(0, 10);
+// This is the code that I replaced using classes
+        // Welcome message
+            // Console.ForegroundColor = ConsoleColor.Green;
+            // Console.WriteLine(@"                        ___   __    __         ___");
+            // Console.WriteLine(@"    ----------   |\  | |     |__)  |  \  |    |   ");
+            // Console.WriteLine(@"    WELCOME TO   | \ | |--   | \   |   | |    |-- ");
+            // Console.WriteLine(@"    ----------   |  \| |___  |  \  |__/  |___ |___");
+            // Console.WriteLine("");
+            // Console.ResetColor();
+        // Setting 3 random ints to 0-9
+            // Random _random1 = new Random();
+            // int firstDigit = _random1.Next(0, 10);
 
-Random _random3 = new Random();
-int thirdDigit = _random3.Next(0, 10);
-// Putting the 3 ints into an array and printing
-// For internal purposes only, so we can see the number when testing
-// int[] correctAnswer = new int[3] { firstDigit, secondDigit, thirdDigit };
+            // Random _random2 = new Random();
+            // int secondDigit = _random2.Next(0, 10);
 
-// foreach (int digit in correctAnswer)
-// {
-//     Console.Write(digit.ToString());
-// }
+            // Random _random3 = new Random();
+            // int thirdDigit = _random3.Next(0, 10);
+
+//Old code
+            // Putting the 3 ints into an array and printing
+            // For internal purposes only, so we can see the number when testing
+            // int[] correctAnswer = new int[3] { firstDigit, secondDigit, thirdDigit };
+
+            // foreach (int digit in correctAnswer)
+            // {
+            //     Console.Write(digit.ToString());
+            // }
 
 // For Loop that provides 5 attempts
-int attempts = 6;
+int attempts = 5;
 int guessResult = 0;
-for (int i = 0; i < attempts && guessResult == 0; i++)
+for (int i = 0; i <= attempts && guessResult == 0; i++)
 {
     if (i == 5)
     {
-        guessResult = 1;
+        //guessResult = 1;
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("~ You have run out of attempts. Better luck next time. ~");
         Console.ResetColor();
     }
     else
     {
-        Console.Write($"Try to guess our 3 digit number. You have {attempts - (i + 1)} attempts left:  ");
+        Console.Write($"Try to guess our 3 digit number. You have {attempts - (i)} attempts left:  ");
         Console.ForegroundColor = ConsoleColor.Magenta;
         string input = Console.ReadLine()!;
         Console.ResetColor();
@@ -84,6 +100,33 @@ for (int i = 0; i < attempts && guessResult == 0; i++)
                 string feedback3 = thirdDigit == guessDigit3 ? "correct" : thirdDigit > guessDigit3 ? "higher" : "lower";
                 Console.WriteLine($"The third digit is {feedback3}. ");
             }
+        }
+    }
+}
+
+namespace Nerdle
+{
+    public class Introduction {
+        //public string name;
+        
+        public void WelcomeMessage()
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine(@"                        ___   __    __         ___");
+                Console.WriteLine(@"    ----------   |\  | |     |__)  |  \  |    |   ");
+                Console.WriteLine(@"    WELCOME TO   | \ | |--   | \   |   | |    |-- ");
+                Console.WriteLine(@"    ----------   |  \| |___  |  \  |__/  |___ |___");
+                Console.WriteLine("");
+                Console.ResetColor();
+            }
+    }
+    public class NerdleGenerator
+    {
+        public int GenerateNerdle()
+        {
+            Random _random = new Random();
+            int digit = _random.Next(0, 10);
+            return digit;
         }
     }
 }
