@@ -22,8 +22,8 @@ while (game == "on")
 int attempts = 0;
 while (attempts == 0) 
 {
-    Console.WriteLine("How many attempts do you need to guess our 3 digit number?");
-    Console.Write("Enter a # 1 through 6: ");
+    Console.WriteLine("How many attempts do you need to guess our number? ");
+    Console.Write("Choose # of attempts, 1 through 6: ");
     string attemptsRequested = (Console.ReadLine()!);
     
     bool isInteger = int.TryParse(attemptsRequested, out attemptsGranted);
@@ -44,12 +44,12 @@ for (int i = 0; i <= attempts && game == "on"; i++)
 {
     if (i == attempts)
     {
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("~ You have run out of attempts. Better luck next time. ~\n");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("\n~ You have run out of attempts. Better luck next time. ~\n");
         Console.ResetColor();
         score-=100;
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine($"Your current score is:  {score}\n");
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine($"    << Your current score is:  {score} >>\n");
         Console.ResetColor();
         PromptNewGame();
     }
@@ -85,11 +85,11 @@ for (int i = 0; i <= attempts && game == "on"; i++)
             if (firstDigit == guessDigit1 && secondDigit == guessDigit2 && thirdDigit == guessDigit3)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("*Congratulations! You correctly guessed our number. You are a Nerdle.*\n");
+                Console.WriteLine("\n** Congratulations! You correctly guessed our number. You are a Nerdle! **\n");
                 Console.ResetColor();
                 AddToScore(attemptsGranted);
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"Your current score is:  {score}\n");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"    << Your current score is:  {score} >>\n");
                 Console.ResetColor();
                 PromptNewGame();
                 break;
@@ -97,14 +97,22 @@ for (int i = 0; i <= attempts && game == "on"; i++)
 
             else
             {
-                string feedback1 = firstDigit == guessDigit1 ? "correct" : firstDigit > guessDigit1 ? "higher" : "lower";
-                Console.Write($"The first digit is {feedback1}. |  ");
+                // string feedback1 = firstDigit == guessDigit1 ? "correct" : firstDigit > guessDigit1 ? "higher" : "lower";
+                // Console.Write($"The first digit is {feedback1}. |  ");
 
-                string feedback2 = secondDigit == guessDigit2 ? "correct" : secondDigit > guessDigit2 ? "higher" : "lower";
-                Console.Write($"The second digit is {feedback2}. |  ");
+                // string feedback2 = secondDigit == guessDigit2 ? "correct" : secondDigit > guessDigit2 ? "higher" : "lower";
+                // Console.Write($"The second digit is {feedback2}. |  ");
 
-                string feedback3 = thirdDigit == guessDigit3 ? "correct" : thirdDigit > guessDigit3 ? "higher" : "lower";
-                Console.WriteLine($"The third digit is {feedback3}. ");
+                // string feedback3 = thirdDigit == guessDigit3 ? "correct" : thirdDigit > guessDigit3 ? "higher" : "lower";
+                // Console.WriteLine($"The third digit is {feedback3}. ");
+
+                Console.Write($"\n     First digit is ");
+                CompareNumbers(firstDigit, guessDigit1);
+                Console.Write($"  |  Second digit is ");
+                CompareNumbers(secondDigit, guessDigit2);
+                Console.Write($"  |  Third digit is ");
+                CompareNumbers(thirdDigit, guessDigit3);
+                Console.WriteLine("");
             }
         }
     }
@@ -143,6 +151,28 @@ int AddToScore(int pointsEarned)
     }
     
 }
+// Compares each digit guessed to the random digit and provides appropriately colored feedback
+void CompareNumbers(int randomNum, int inputNum)
+{
+    if (inputNum == randomNum)
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.Write("correct");
+        Console.ResetColor();
+    }
+    else if (inputNum > randomNum)
+    {
+        Console.ForegroundColor = ConsoleColor.Blue;
+        Console.Write("lower");
+        Console.ResetColor();
+    }
+    else 
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("higher");
+        Console.ResetColor();
+    }
+}
 
 namespace Nerdle
 {
@@ -157,10 +187,9 @@ namespace Nerdle
                 Console.WriteLine(@"    WELCOME TO   | \ | |--   | \   |   | |    |-- ");
                 Console.WriteLine(@"    ----------   |  \| |___  |  \  |__/  |___ |___");
                 Console.WriteLine("");
-                Console.WriteLine("Nerdle is a number guessing game. You must guess our 3 digit number.");
-                Console.WriteLine("After each guess, we will tell you if each digit is higher, lower, or correct.");
+                Console.WriteLine("You must guess our 3 digit number. After each attempt, we will tell you if each digit is higher, lower, or correct.");
                 Console.WriteLine("If you guess all 3 digits correctly, you will be awarded points based on the # of attempts you have chosen.");
-                Console.ForegroundColor = ConsoleColor.White;
+                Console.ResetColor();
                 Console.WriteLine("\n 6 attempts = 25 points \n 5 attempts = 50 points \n 4 attempts = 100 points \n 3 attempts = 250 points \n 2 attempts = 500 points \n 1 attempt = 1000 points\n");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Should you run out of attempts before correctly guessing all 3 digits, you will lose 100 points. Good luck!\n");
