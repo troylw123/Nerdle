@@ -13,8 +13,10 @@ int thirdDigit = nerdGen.GenerateNerdle();
 
 int score = 0;
 int attemptsGranted = 0;
+
 // For internal purposes only, so we can see the number when testing
 // Console.Write($"{firstDigit}{secondDigit}{thirdDigit}");
+
 string game = "on";
 while (game == "on")
 {
@@ -45,7 +47,7 @@ for (int i = 0; i <= attempts && game == "on"; i++)
     if (i == attempts)
     {
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("\n~ You have run out of attempts. Better luck next time. ~\n");
+        Console.WriteLine("\n~ You have run out of attempts. Our number was {0}{1}{2}. ~\n", firstDigit, secondDigit, thirdDigit);
         Console.ResetColor();
         score-=100;
         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -96,16 +98,7 @@ for (int i = 0; i <= attempts && game == "on"; i++)
             }
 
             else
-            {
-                // string feedback1 = firstDigit == guessDigit1 ? "correct" : firstDigit > guessDigit1 ? "higher" : "lower";
-                // Console.Write($"The first digit is {feedback1}. |  ");
-
-                // string feedback2 = secondDigit == guessDigit2 ? "correct" : secondDigit > guessDigit2 ? "higher" : "lower";
-                // Console.Write($"The second digit is {feedback2}. |  ");
-
-                // string feedback3 = thirdDigit == guessDigit3 ? "correct" : thirdDigit > guessDigit3 ? "higher" : "lower";
-                // Console.WriteLine($"The third digit is {feedback3}. ");
-
+            {              
                 Console.Write($"\n     First digit is ");
                 CompareNumbers(firstDigit, guessDigit1);
                 Console.Write($"  |  Second digit is ");
