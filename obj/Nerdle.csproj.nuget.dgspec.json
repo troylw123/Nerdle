@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\troyl\\Documents\\CF127FT\\codingFoundations\\dotnetProjects\\nerdle\\Nerdle.csproj": {}
+    "C:\\Users\\cstaz\\Documents\\CF127FT\\codingFoundations\\dotnetProjects\\Nerdle\\Nerdle.csproj": {}
   },
   "projects": {
-    "C:\\Users\\troyl\\Documents\\CF127FT\\codingFoundations\\dotnetProjects\\nerdle\\Nerdle.csproj": {
+    "C:\\Users\\cstaz\\Documents\\CF127FT\\codingFoundations\\dotnetProjects\\Nerdle\\Nerdle.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\troyl\\Documents\\CF127FT\\codingFoundations\\dotnetProjects\\nerdle\\Nerdle.csproj",
+        "projectUniqueName": "C:\\Users\\cstaz\\Documents\\CF127FT\\codingFoundations\\dotnetProjects\\Nerdle\\Nerdle.csproj",
         "projectName": "Nerdle",
-        "projectPath": "C:\\Users\\troyl\\Documents\\CF127FT\\codingFoundations\\dotnetProjects\\nerdle\\Nerdle.csproj",
-        "packagesPath": "C:\\Users\\troyl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\troyl\\Documents\\CF127FT\\codingFoundations\\dotnetProjects\\nerdle\\obj\\",
+        "projectPath": "C:\\Users\\cstaz\\Documents\\CF127FT\\codingFoundations\\dotnetProjects\\Nerdle\\Nerdle.csproj",
+        "packagesPath": "C:\\Users\\cstaz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cstaz\\Documents\\CF127FT\\codingFoundations\\dotnetProjects\\Nerdle\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\troyl\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\cstaz\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
